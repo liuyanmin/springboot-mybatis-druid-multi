@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lym.demo.db1.mapper.User1InfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.lym.demo.db1.domain.User1Info">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="gender" jdbcType="INTEGER" property="gender" />
+        <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    </resultMap>
+
+    <select id="selectList" resultMap="BaseResultMap">
+        SELECT * FROM user1_info
+    </select>
+
+    <insert id="insert" parameterType="com.lym.demo.db1.domain.User1Info">
+        INSERT INTO user1_info(username, gender, add_time, update_time)
+        VALUES (#{username}, #{gender}, #{addTime}, #{updateTime})
+    </insert>
+
+    <update id="updateById" parameterType="com.lym.demo.db1.domain.User1Info">
+        UPDATE user1_info SET username=#{username}, gender=#{gender}, add_time=#{addTime}, update_time=#{updateTime}
+        WHERE id=#{id}
+    </update>
+
+</mapper>
