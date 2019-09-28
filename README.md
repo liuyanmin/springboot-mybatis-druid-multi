@@ -105,6 +105,7 @@ public class DB1Config {
 }
 ~~~
 @Primary: 注解用来标识当前数据源为主数据源（或默认数据源），但是需要注意，SqlSessionTemplate 不能使用@Primary 注解，否则在使用@Transactional(value="TransactionManager")指定事务管理器时不生效。若@Transactional 不指定事务管理器，默认使用 db1TransactionManager
+
 classpath*:com/lym/demo/db1/mapper/*Mapper.xml : 指定当前数据源管理的Mapper.xml
 ### 配置数据源2
 ~~~java
